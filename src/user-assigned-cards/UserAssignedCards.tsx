@@ -27,34 +27,39 @@ const UserAssignedCardsContainer: React.FC<UserAssignedCardsContainerProps> = ({
   const userId = match.params.userId;
   console.log('---user id from page---', userId)
   const assignedCards: AssignedCardType[] = [
-    {
-      id: '1',
-      userId: '1',
-      cardBluePrint: {
-        title: 'Loyalty card',
-        maxPunches: 7,
-        reward: {
-          title: 'product-a',
-          url: 'http://192.168.0.33:3000/category-a/product-a'
-        }
-      },
-      punches: [ { id: 1, date: new Date('16/05/1993')}],
-      redeemed: false
-    },
-    {
-      id: '2',
-      userId: '1',
-      cardBluePrint: {
-        title: 'Loyalty card',
-        maxPunches: 7,
-        reward: {
-          title: 'product-a',
-          url: 'http://192.168.0.33:3000/category-a/product-a'
-        }
-      },
-      punches: [ { id: 1, date: new Date('16/05/1993')}],
-      redeemed: true
-    }
+    // {
+    //   id: '1',
+    //   userId: '1',
+    //   cardBluePrint: {
+    //     title: 'Loyalty card',
+    //     maxPunches: 7,
+    //     reward: {
+    //       title: 'product-a',
+    //       url: 'http://192.168.0.33:3000/category-a/product-a'
+    //     }
+    //   },
+    //   punches: [ { id: 1, date: new Date('16/05/1993')}],
+    //   redeemed: false
+    // },
+    // {
+    //   id: '2',
+    //   userId: '1',
+    //   cardBluePrint: {
+    //     title: 'Loyalty card',
+    //     maxPunches: 7,
+    //     reward: {
+    //       title: 'product-a',
+    //       url: 'http://192.168.0.33:3000/category-a/product-a'
+    //     }
+    //   },
+    //   punches: [ { id: 1, date: new Date('16/05/1993')}],
+    //   redeemedMarks: [
+    //     {
+    //       id: 1
+
+    //     }
+    //   ]
+    // }
   ]
 
   return (

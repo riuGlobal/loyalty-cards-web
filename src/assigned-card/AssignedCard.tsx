@@ -1,7 +1,8 @@
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCol, IonGrid, IonIcon, IonRouterLink, IonRow, IonTitle } from "@ionic/react"
 import { checkmark } from "ionicons/icons";
 import React from "react";
-import { AssignedCard as AssignedCardType } from "./AssignedCard.interface";
+
+import type { AssignedCard as AssignedCardType } from "./AssignedCard.interface";
 import PunchedPunchBox from "./PunchedPunchBox";
 import UnpunchedPunchBox from "./UnpunchedPunchBox";
 
@@ -10,10 +11,14 @@ interface AssignedCardProps {
   assignedCard: AssignedCardType
 }
 
+
+
 export const AssignedCard: React.FC<AssignedCardProps> = ({ assignedCard }) => {
-  const {cardBluePrint, punches, redeemed } = assignedCard;
+  const {cardBluePrint, punches, redeemedMarks } = assignedCard;
   const { title, maxPunches, reward } = cardBluePrint;
   const unpunchedCards = maxPunches - punches.length;
+
+  const redeemed = redeemedMarks.length > 0;
   return (
     <IonCard className={redeemed ? 'assigned-card-redeemed' : 'assigned-card-not-redeemed'}>
       <IonCardHeader>

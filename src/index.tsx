@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers/index';
+import thunk from 'redux-thunk';
+import {createStore, applyMiddleware, Store} from 'redux';
+
+const middleware: any[] = [ thunk ]
+
+const store: Store = createStore(
+  rootReducer,
+  applyMiddleware(...middleware)
+)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

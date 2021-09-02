@@ -1,7 +1,6 @@
-import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import { Redirect, Route } from 'react-router-dom';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -21,8 +20,10 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import LandingAssignedCards from './landing-assigned-cards/LandingAssignedCards';
+// eslint-disable-next-line import/order
+import Home from './pages/Home';
 import UserAssignedCardsContainer from './user-assigned-cards/UserAssignedCards';
-import { LandingAssignedCards } from './landing-assigned-cards/LandingAssignedCards';
 
 const App: React.FC = () => (
   <IonApp>

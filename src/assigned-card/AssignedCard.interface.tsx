@@ -7,5 +7,13 @@ export interface AssignedCard {
   dateAssigned?: Date;
   cardBluePrint: CardBluePrint;
   punches: CardPunch[];
-  redeemed: boolean;
+  redeemedMarks: RedeemedMark[],
+}
+
+interface RedeemedMark {
+  id: number;
+  date: Date;
+  assignedCardId: number;
+  note?: string;
+
 }
