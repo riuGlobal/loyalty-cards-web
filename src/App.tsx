@@ -21,11 +21,17 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import UserAssignedCardsContainer from './user-assigned-cards/UserAssignedCards';
+import { LandingAssignedCards } from './landing-assigned-cards/LandingAssignedCards';
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
+        <Route exact path='/landing/assigned-cards' component={LandingAssignedCards}>
+        </Route>
+        <Route exact path='/user/:userId/assignedCards' component={UserAssignedCardsContainer} >
+        </Route>
         <Route exact path="/home">
           <Home />
         </Route>
