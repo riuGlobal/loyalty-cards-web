@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "cardStackId": 1,
+    "userId": "string",
+    "title": "Some title",
+    "numberOfPunchBoxes": 10,
+    "rewards": [
+      {
+        "id": 1,
+        "amount": 1,
+        "name": "Some cool gift",
+        "url": "http://my-ecommerce/products/some-cool-gift"
+      },
+      {
+        "id": 1,
+        "amount": 1,
+        "name": "Some other gift",
+        "url": "http://my-ecommerce/products/some-cool-gift"
+      }
+    ],
+    "punches": [
+      {
+        "id": 1,
+        "date": "2021-09-02T22:46:27.572Z",
+        "assignedCardId": 1
+      }
+    ],
+    "redeemedMarks": [
+      {
+        "id": 1,
+        "date": "2021-09-02T22:46:27.572Z",
+        "assignedCardId": 1,
+        "note": "All rewards redeemed."
+      }
+    ]
+  }
+]

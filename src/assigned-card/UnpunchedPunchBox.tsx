@@ -1,12 +1,12 @@
 import { IonCard, IonIcon, IonItem } from "@ionic/react";
-import React from "react";
 import { squareOutline } from 'ionicons/icons'
+import React from "react";
 import './PunchBox.css'
 
-interface UnpunchedPunchBoxProps {
-}
+// interface UnpunchedPunchBoxProps {
+// }
 
-const UnpunchedPunchBox: React.FC<UnpunchedPunchBoxProps> = () => {
+const UnpunchedPunchBox: React.FC<unknown> = () => {
   return (
     <IonCard className='punch-box'>
       <IonItem>

@@ -1,7 +1,8 @@
 import { IonContent, IonPage } from "@ionic/react";
-import { RouteComponentProps } from "react-router";
+import type { RouteComponentProps } from "react-router";
+
 import { AssignedCard } from "../assigned-card/AssignedCard";
-import { AssignedCard as AssignedCardType} from "../assigned-card/AssignedCard.interface";
+import type { AssignedCard as AssignedCardType} from "../assigned-card/AssignedCard.interface";
 
 
 
@@ -19,9 +20,9 @@ export const UserAssignedCards:React.FC<UserAssignedCardsProps> = ({assignedCard
   </IonPage>
 );
 
-interface UserAssignedCardsContainerProps extends RouteComponentProps<{
+type UserAssignedCardsContainerProps = RouteComponentProps<{
   userId: 'string'
-}> {}
+}>
 
 const UserAssignedCardsContainer: React.FC<UserAssignedCardsContainerProps> = ({match}) => {
   const userId = match.params.userId;

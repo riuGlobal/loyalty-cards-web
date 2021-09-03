@@ -9,14 +9,15 @@ import UnpunchedPunchBox from "./UnpunchedPunchBox";
 
 interface AssignedCardProps {
   assignedCard: AssignedCardType
-}
+};
 
 
 
 export const AssignedCard: React.FC<AssignedCardProps> = ({ assignedCard }) => {
-  const {cardBluePrint, punches, redeemedMarks } = assignedCard;
-  const { title, maxPunches, reward } = cardBluePrint;
-  const unpunchedCards = maxPunches - punches.length;
+  const { punches, redeemedMarks, 
+      title, numberOfPunchBoxes, rewards } = assignedCard;
+  
+  const unpunchedCards = numberOfPunchBoxes - punches.length;
 
   const redeemed = redeemedMarks.length > 0;
   return (
@@ -52,10 +53,17 @@ export const AssignedCard: React.FC<AssignedCardProps> = ({ assignedCard }) => {
         </IonGrid>
         </IonCard>
         <IonTitle>
-          {`Get this prize when completing your card: `} 
-            <IonRouterLink href ={reward.url}>
-              {reward.title}
-            </IonRouterLink>
+          {`Get this prize(s) when completing your card: `} 
+          <br/>
+              { rewards.map(reward => 
+                (<>
+                <IonRouterLink href ={reward.url}>
+                  {reward.name}
+                </IonRouterLink>
+                <br/>
+                </>
+                )
+              )}
         </IonTitle>
       </IonCardContent>
     </IonCard>

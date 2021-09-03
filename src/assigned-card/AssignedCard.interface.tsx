@@ -1,19 +1,19 @@
-import { CardBluePrint } from "./CardBluePrint.interface";
-import { CardPunch } from "./CardPunch.interface";
+import type { CardPunch } from "./CardPunch.interface";
+import type { Reward } from "./Reward.interface";
 
 export interface AssignedCard {
-  id: string;
+  id: number;
   userId: string;
-  dateAssigned?: Date;
-  cardBluePrint: CardBluePrint;
+  title: string;
+  numberOfPunchBoxes: number;
+  rewards: Reward[];
   punches: CardPunch[];
-  redeemedMarks: RedeemedMark[],
+  redeemedMarks: RedeemedMark[];
 }
 
 interface RedeemedMark {
   id: number;
-  date: Date;
   assignedCardId: number;
-  note?: string;
+  note: string
 
 }

@@ -1,4 +1,5 @@
 export interface Reward {
-  title: string;
+  amount?: number;
+  name: string;
   url: string;
 }

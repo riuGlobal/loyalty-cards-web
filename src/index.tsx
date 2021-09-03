@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers/index';
+import type { Store} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import {createStore, applyMiddleware, Store} from 'redux';
+
+import App from './App';
+import rootReducer from './reducers/index';
+import reportWebVitals from './reportWebVitals';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
 
 const middleware: any[] = [ thunk ]
 

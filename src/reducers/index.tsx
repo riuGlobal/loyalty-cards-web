@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import landing from './landing';
+
+import landingAssignedCards from '../landing-assigned-cards/LandingAssignedCardsReducer';
 
 export default combineReducers({
-  landing
+  landingAssignedCards
 })
