@@ -1,74 +1,77 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCol, IonGrid, IonIcon, IonRouterLink, IonRow, IonTitle } from "@ionic/react"
-import { checkmark } from "ionicons/icons";
-import React from "react";
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCol,
+  IonGrid,
+  IonIcon,
+  IonRouterLink,
+  IonRow,
+  IonTitle,
+} from '@ionic/react';
+import { checkmark } from 'ionicons/icons';
+import React from 'react';
 
-import type { AssignedCard as AssignedCardType } from "./AssignedCard.interface";
-import PunchedPunchBox from "./PunchedPunchBox";
-import UnpunchedPunchBox from "./UnpunchedPunchBox";
-
+import type { AssignedCard as AssignedCardType } from './AssignedCard.interface';
+import PunchedPunchBox from './PunchedPunchBox';
+import UnpunchedPunchBox from './UnpunchedPunchBox';
 
 interface AssignedCardProps {
-  assignedCard: AssignedCardType
-};
-
-
+  assignedCard: AssignedCardType;
+}
 
 export const AssignedCard: React.FC<AssignedCardProps> = ({ assignedCard }) => {
-  const { punches, redeemedMarks, 
-      title, numberOfPunchBoxes, rewards } = assignedCard;
-  
+  const { punches, redeemedMarks, title, numberOfPunchBoxes, rewards } = assignedCard;
+
   const unpunchedCards = numberOfPunchBoxes - punches.length;
 
   const redeemed = redeemedMarks.length > 0;
   return (
     <IonCard className={redeemed ? 'assigned-card-redeemed' : 'assigned-card-not-redeemed'}>
       <IonCardHeader>
-      <IonTitle> {title} </IonTitle>
-      {redeemed && (
-       <>
-        <IonCardSubtitle color='success'> {`Redeemed `} 
-          <IonIcon icon={checkmark}/>
-        </IonCardSubtitle>
-        
-        </>)
-      }
+        <IonTitle> {title} </IonTitle>
+        {redeemed && (
+          <>
+            <IonCardSubtitle color="success">
+              {' '}
+              {`Redeemed `}
+              <IonIcon icon={checkmark} />
+            </IonCardSubtitle>
+          </>
+        )}
       </IonCardHeader>
       <IonCardContent>
         <IonCard>
-        <IonGrid className='punch-box-grid'>
-          <IonRow>
-            {
-              punches.map(() => (
-                <IonCol size='12' size-md='2'>
+          <IonGrid className="punch-box-grid">
+            <IonRow>
+              {punches.map(() => (
+                <IonCol size="12" size-md="2">
                   <PunchedPunchBox />
                 </IonCol>
               ))}
-            {[...Array(unpunchedCards)].map((element, index) => (
-              <IonCol size='12' size-md='2' key={`punch-box-${index}`}>
-                  <UnpunchedPunchBox />   
-              </IonCol>
-            ))}
-            
-          </IonRow>
-        </IonGrid>
+              {[...Array(unpunchedCards)].map((element, index) => (
+                <IonCol size="12" size-md="2" key={`punch-box-${index}`}>
+                  <UnpunchedPunchBox />
+                </IonCol>
+              ))}
+            </IonRow>
+          </IonGrid>
         </IonCard>
         <IonTitle>
-          {`Get this prize(s) when completing your card: `} 
-          <br/>
-              { rewards.map(reward => 
-                (<>
-                <IonRouterLink href ={reward.url}>
-                  {reward.name}
-                </IonRouterLink>
-                <br/>
-                </>
-                )
-              )}
+          {`Get this prize(s) when completing your card: `}
+          <br />
+          {rewards.map((reward) => (
+            <>
+              <IonRouterLink href={reward.url}>{reward.name}</IonRouterLink>
+              <br />
+            </>
+          ))}
         </IonTitle>
       </IonCardContent>
     </IonCard>
   );
-}
+};
 
 export default AssignedCard;
 
